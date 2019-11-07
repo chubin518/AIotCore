@@ -8,8 +8,13 @@
 		<button type="default" @click="subscribe">监听消息</button>
 
 		<button type="warn" @click="disconnect">断开IOT连接</button>
-	 <map style="width: 100%; height: 300px;" :latitude="latitude" :longitude="longitude" >
-	                </map>
+		
+		/**
+		 * 暂时模拟器打开崩溃，安装至手机端OK
+		 */
+		<map style="width: 100%; height: 300px;" :latitude="latitude" :longitude="longitude">
+		</map>
+		
 	</view>
 </template>
 
