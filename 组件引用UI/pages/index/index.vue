@@ -1,6 +1,6 @@
 <template>
 	<view class="content">
-	
+
 		<button type="primary" @click="connect">连接IOT</button>
 
 		<button type="default" @click="publish">发布消息</button>
@@ -14,10 +14,14 @@
 
 <script>
 	const aiotMqttClient = uni.requireNativePlugin('AIoT-Core')
+	const conf = {
+		ProductKey: "a1j4KvvPJb1",
+		DeviceName: "test_device1",
+		DeviceSecret: "eQHe9y0CCXnDRVb8QnFRCN2Wd1adJQ3C"
+	}
 	export default {
 		data() {
-			return {
-			}
+			return {}
 		},
 		onLoad() {
 
@@ -25,12 +29,10 @@
 		methods: {
 			connect() {
 				try {
-					aiotMqttClient.connect({
-						"ProductKey": "a1j4KvvPJb1",
-						"DeviceName": "test_device1",
-						"DeviceSecret": "eQHe9y0CCXnDRVb8QnFRCN2Wd1adJQ3C"
-					}, result => {
-						console.log(result)
+					aiotMqttClient.connect(conf, result => {
+						uni.showToast({
+							title: JSON.stringify(result)
+						})
 					})
 				} catch (e) {
 					console.error(e)
@@ -38,31 +40,45 @@
 			},
 			disconnect() {
 				aiotMqttClient.disconnect(result => {
-					console.log(result)
+					uni.showToast({
+						title: JSON.stringify(result)
+					})
 				});
 			},
 			publish() {
-
+				aiotMqttClient.publish({
+					topic:`/${conf.ProductKey}/${conf.DeviceName}/user/update`,
+					content:'dadefrer'
+				}, result => {
+					uni.showToast({
+						title: JSON.stringify(result)
+					})
+				})
 			},
 			subscribe() {
 				aiotMqttClient.subscribe({
-					topic: `/sys/a1j4KvvPJb1/test_device1/thing/service/property/set`,
+					topic: `/sys/${conf.ProductKey}/${conf.DeviceName}/thing/service/property/set`,
 				}, result => {
-					console.log(result)
+					uni.showToast({
+						title: JSON.stringify(result)
+					})
 				}, result => {
-					console.log(result)
+					uni.showToast({
+						title: JSON.stringify(result)
+					})
 				})
 
 
 				aiotMqttClient.subscribe({
-					topic: `/a1j4KvvPJb1/test_device1/user/get`,
+					topic: `/${conf.ProductKey}/${conf.DeviceName}/user/get`,
 				}, result => {
-					console.log(result)
-					uni.redirectTo({
-						url: '../Detail/Detail?id=' + result.data.payload
+					uni.showToast({
+						title: JSON.stringify(result)
 					})
 				}, result => {
-					console.log(result)
+					uni.showToast({
+						title: JSON.stringify(result)
+					})
 				})
 			}
 		}

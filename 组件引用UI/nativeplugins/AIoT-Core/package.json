@@ -1,0 +1,19 @@
+{
+	"name": "AIoT-Core",
+	"id": "AIoT-Core",
+	"version": "1.0.0",
+	"description": "阿里IoT设备端SDK",
+	"_dp_type": "nativeplugin",
+	"_dp_nativeplugin": {
+		"android": {
+			"plugins": [{
+				"type": "module",
+				"name": "AIoT-Core",
+				"class": "com.example.aiotclient.AiotMqttClientModule"
+			}],
+			"integrateType": "aar",
+			"minSdkVersion": 21,
+			"abis": ["armeabi-v7a", "arm64-v8a", "x86"]
+		}
+	}
+}
