@@ -25,7 +25,7 @@ repositories {
 }
 dependencies {
     compileOnly fileTree(dir: 'libs', include: ['*.jar'])
-    compileOnly fileTree(dir: 'libs', include: ['*.aar'])
+    compileOnly fileTree(dir: '../app/libs', include: ['uniapp-release.aar','aiotcore-0.0.4.aar'])
     compileOnly "com.android.support:recyclerview-v7:28.0.0"
     compileOnly "com.android.support:support-v4:28.0.0"
     compileOnly "com.android.support:appcompat-v7:28.0.0"
