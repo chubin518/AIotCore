@@ -1,24 +1,24 @@
-<template>
-	<view class="content">
+依赖原生 aar 包地址：
 
-		<button type="primary" @click="connect">连接IOT</button>
+https://www.yuque.com/aliyun_iot/product/android-device-sdk
 
-		<button type="default" @click="publish">发布消息</button>
+组件源代码：
 
-		<button type="default" @click="subscribe">监听消息</button>
+https://github.com/chubin518/AIotCore/tree/master/AIoT_SDK
 
-		<button type="warn" @click="disconnect">断开IOT连接</button>
-		<map style="width: 40vw; height: 100vh;scale=11" :latitude="latitude" :longitude="longitude"></map>
-	</view>
-</template>
+插件使用示例：
 
-<script>
-	const aiotMqttClient = uni.requireNativePlugin('AIoT-Core')
-	//阿里IOT三元组
+https://github.com/chubin518/AIotCore/tree/master/%E7%BB%84%E4%BB%B6%E5%BC%95%E7%94%A8UI
+
+代码示例
+
+```
+const aiotMqttClient = uni.requireNativePlugin('AIoT-Core')
+//阿里IOT三元组
 	const conf = {
-		ProductKey: "a1j4KvvPJb1",
-		DeviceName: "test_device1",
-		DeviceSecret: "eQHe9y0CCXnDRVb8QnFRCN2Wd1adJQ3C"
+		ProductKey: "",
+		DeviceName: "",
+		DeviceSecret: ""
 	}
 	export default {
 		data() {
@@ -87,18 +87,4 @@
 			}
 		}
 	}
-</script>
-
-<style>
-	button {
-		margin-top: 30upx;
-		margin-bottom: 30upx;
-	}
-
-	.content {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		justify-content: center;
-	}
-</style>
+```
