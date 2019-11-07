@@ -1,0 +1,17 @@
+{
+  "nativePlugins": [
+    {
+      "hooksClass": "com.example.aiotclient.AiotMqttClientModule.AiotMqttClientProxy",
+      "plugins": [
+        {
+          "type": "module",
+          "name": "AIoT-Core",
+          "class": "com.example.aiotclient.AiotMqttClientModule"
+        }
+      ]
+    },
+    {
+      "hooksClass": "uni.dcloud.io.uniplugin_stepcounter.StepCounterHookProxy"
+    }
+  ]
+}
